@@ -1,4 +1,4 @@
-package com.cmpe131.task_bounty;
+package com.cmpe131.task_bounty.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -8,6 +8,9 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.cmpe131.task_bounty.R;
+import com.cmpe131.task_bounty.Task;
 
 import java.util.ArrayList;
 
@@ -32,6 +35,7 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
     @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         // Get Task Info
         String goal = getItem(position).getGoal();
         String reward = getItem(position).getReward();

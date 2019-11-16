@@ -3,6 +3,7 @@ package com.cmpe131.task_bounty;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.cmpe131.task_bounty.adapter.TaskListAdapter;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.appcompat.app.AppCompatActivity;
