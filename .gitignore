@@ -63,6 +63,7 @@ obj/
 /out/
 
 # User-specific configurations
+.idea/codeStyles/
 .idea/caches/
 .idea/gradle.xml
 .idea/libraries/
@@ -76,6 +77,7 @@ obj/
 .idea/encodings.xml
 .idea/misc.xml
 .idea/modules.xml
+.idea/runConfigurations.xml
 .idea/scopes/scope_settings.xml
 .idea/dictionaries
 .idea/vcs.xml
