@@ -1,9 +1,9 @@
 package com.cmpe131.task_bounty;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -11,24 +11,49 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements TaskHub {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Display Database //
+        displayList();
+
+        // Toolbar //
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Button to Create Task //
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                createTask();
             }
         });
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        displayList();      // Refresh list
+    }
+
+    // Generate List for Display //
+    public void displayList() {
+        ListView listView = (ListView)findViewById(R.id.listView);
+        TaskListAdapter adapter = new TaskListAdapter(this,R.layout.adapter_view_layout,inProgressTasks);
+        listView.setAdapter(adapter);
+    }
+
+    // Start Activity for Creating Task //
+    public void createTask() {
+        Intent intent = new Intent(this, CreateActivity.class);
+        startActivity(intent);
     }
 
     @Override
