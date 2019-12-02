@@ -32,21 +32,21 @@ public class EditActivity extends AppCompatActivity implements TaskHub {
         setContentView(R.layout.content_edit);
 
         // Associate Objects to Components //
-        editTaskDate = findViewById(R.id.datePicker);
-        editTaskGoal = findViewById(R.id.inputGoal);
-        editTaskReward = findViewById(R.id.inputReward);
+        editTaskDate = findViewById(R.id.inputEditDate);
+        editTaskGoal = findViewById(R.id.inputEditGoal);
+        editTaskReward = findViewById(R.id.inputEditReward);
         buttonDelete = findViewById(R.id.buttonDelete);
         buttonSave = findViewById(R.id.buttonSave);
 
-        // Retrieve Data from Extra //
+        // Fetch Task from ArrayList //
         final int INDEX = getIntent().getExtras().getInt("INDEX");
         Task task = inProgressTasks.get(INDEX);
 
-        // Preload Existing Data //
-        String str[] = task.getDate().split("/");
-        int month = Integer.parseInt(str[0]) - 1;
-        int day = Integer.parseInt(str[1]);
-        int year = Integer.parseInt(str[2]);
+        // Display Existing Data //
+        String dateStr[] = task.getDate().split("/");
+        int month = Integer.parseInt(dateStr[0]) - 1;
+        int day = Integer.parseInt(dateStr[1]);
+        int year = Integer.parseInt(dateStr[2]);
         editTaskDate.init(year, month, day, null);
         editTaskGoal.setText(task.getGoal());
         editTaskReward.setText(task.getReward());
