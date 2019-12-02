@@ -33,9 +33,9 @@ public class CreateActivity extends AppCompatActivity implements TaskHub {
         setContentView(R.layout.content_create);
 
         // Associate Objects to Components //
-        newTaskDate = findViewById(R.id.datePicker);
-        newTaskGoal = findViewById(R.id.inputGoal);
-        newTaskReward = findViewById(R.id.inputReward);
+        newTaskDate = findViewById(R.id.inputNewDate);
+        newTaskGoal = findViewById(R.id.inputNewGoal);
+        newTaskReward = findViewById(R.id.inputNewReward);
         buttonCreate = findViewById(R.id.buttonCreate);
 
         // Button Press Action //

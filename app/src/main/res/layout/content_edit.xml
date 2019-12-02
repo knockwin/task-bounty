@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <DatePicker
-        android:id="@+id/datePicker"
+        android:id="@+id/inputEditDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -21,29 +21,29 @@
         android:datePickerMode="spinner" />
 
     <EditText
-        android:id="@+id/inputGoal"
+        android:id="@+id/inputEditGoal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/datePicker"
+        android:layout_below="@+id/inputEditDate"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_marginStart="99dp"
-        android:layout_marginLeft="99dp"
+        android:layout_marginStart="98dp"
+        android:layout_marginLeft="98dp"
         android:layout_marginTop="64dp"
         android:layout_marginEnd="99dp"
         android:layout_marginRight="99dp"
-        android:gravity="center"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="Goal" />
+        android:gravity="center"
+        android:hint="Goal"
+        android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/inputReward"
+        android:id="@+id/inputEditReward"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/inputGoal"
+        android:layout_below="@+id/inputEditGoal"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentEnd="true"
@@ -55,8 +55,8 @@
         android:layout_marginRight="99dp"
         android:ems="10"
         android:gravity="center"
-        android:inputType="textPersonName"
-        android:hint="Reward" />
+        android:hint="Reward"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/buttonDelete"

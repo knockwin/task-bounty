@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements TaskHub {
         TaskListAdapter adapter = new TaskListAdapter(this,R.layout.adapter_view_layout,inProgressTasks);
         listView.setAdapter(adapter);
 
-        // Edit Details
+        // Edit Selected Task
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
