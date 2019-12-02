@@ -9,11 +9,13 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements TaskHub {
 
@@ -80,11 +82,17 @@ public class MainActivity extends AppCompatActivity implements TaskHub {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+        switch (item.getItemId()) {
+            case R.id.action_Completed:
+                Intent completed = new Intent(this, CompletedTasks.class);
+                startActivity(completed);
+                break;
+            case R.id.action_ParentPin:
+                Toast.makeText(getApplicationContext(), "Parent Pin", Toast.LENGTH_SHORT).show();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+                break;
+
+
         }
 
         return super.onOptionsItemSelected(item);

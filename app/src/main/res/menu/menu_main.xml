@@ -3,8 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.cmpe131.task_bounty.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_ParentPin"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
+        android:title="Parent Login"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_Completed"
+        android:orderInCategory="100"
+        android:title="Completed Tasks"
         app:showAsAction="never" />
 </menu>
