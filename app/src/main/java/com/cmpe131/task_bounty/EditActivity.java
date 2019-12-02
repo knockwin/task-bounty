@@ -17,54 +17,76 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class CreateActivity extends AppCompatActivity implements TaskHub {
 
-    private DatePicker newTaskDate;
-    private EditText newTaskGoal;
-    private EditText newTaskReward;
-    private Button buttonCreate;
-    private String goal;
-    private String reward;
-    private String date;
+public class EditActivity extends AppCompatActivity implements TaskHub {
+
+    private DatePicker editTaskDate;
+    private EditText editTaskGoal;
+    private EditText editTaskReward;
+    private Button buttonDelete;
+    private Button buttonSave;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.content_create);
+        setContentView(R.layout.content_edit);
 
         // Associate Objects to Components //
-        newTaskDate = findViewById(R.id.datePicker);
-        newTaskGoal = findViewById(R.id.inputGoal);
-        newTaskReward = findViewById(R.id.inputReward);
-        buttonCreate = findViewById(R.id.buttonCreate);
+        editTaskDate = findViewById(R.id.datePicker);
+        editTaskGoal = findViewById(R.id.inputGoal);
+        editTaskReward = findViewById(R.id.inputReward);
+        buttonDelete = findViewById(R.id.buttonDelete);
+        buttonSave = findViewById(R.id.buttonSave);
 
-        // Button Press Action //
-        View.OnClickListener btnClick = new View.OnClickListener() {
+        // Retrieve Data from Extra //
+        final int INDEX = getIntent().getExtras().getInt("INDEX");
+        Task task = inProgressTasks.get(INDEX);
+
+        // Preload Existing Data //
+        String str[] = task.getDate().split("/");
+        int month = Integer.parseInt(str[0]) - 1;
+        int day = Integer.parseInt(str[1]);
+        int year = Integer.parseInt(str[2]);
+        editTaskDate.init(year, month, day, null);
+        editTaskGoal.setText(task.getGoal());
+        editTaskReward.setText(task.getReward());
+
+        // Button Press Action (Delete) //
+        View.OnClickListener btnClickDel = new View.OnClickListener() {
             public void onClick(View v) {
-                goal = newTaskGoal.getText().toString();
-                reward = newTaskReward.getText().toString();
-                date = formatDate(newTaskDate);
-                if(goal.isEmpty()) {
+                inProgressTasks.remove(INDEX);
+                finish();   // End Activity
+            }
+        };
+        buttonDelete.setOnClickListener(btnClickDel);
+
+        // Button Press Action (Save) //
+        View.OnClickListener btnClickSave = new View.OnClickListener() {
+            public void onClick(View v) {
+                String goal = editTaskGoal.getText().toString();
+                String reward = editTaskReward.getText().toString();
+                String date = formatDate(editTaskDate);
+                if (goal.isEmpty()) {
                     Context context = getApplicationContext();
                     CharSequence text = "Please enter a goal.";
                     int duration = Toast.LENGTH_SHORT;
 
                     Toast toast = Toast.makeText(context, text, duration);
-                    toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
+                    toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.show();
                 } else {
                     Task task = new Task(goal, reward, date, false);
-                    setTask(task);
-                    finish();   // End CreateActivity, return to MainActivity
+                    editTask(INDEX, task);
+                    finish();   // End Activity
                 }
             }
         };
-        buttonCreate.setOnClickListener(btnClick);
+        buttonSave.setOnClickListener(btnClickSave);
     }
 
-    // Push Task Object to ArrayList //
-    private void setTask(Task task) {
-        inProgressTasks.add(task);
+    // Edit Task Object in ArrayList //
+    private void editTask(int index, Task task) {
+        inProgressTasks.set(index, task);
     }
 
     // Date Formatter //
