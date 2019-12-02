@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_ParentPin"
         android:orderInCategory="100"
-        android:title="Parent Login"
+        android:title="Parent Mode"
         app:showAsAction="never" />
 
     <item

@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements TaskHub {
                 startActivity(completed);
                 break;
             case R.id.action_ParentPin:
-                Intent ParentPin = new Intent (this, CreateParentActivity.class);
+                Intent ParentPin = new Intent (this, ParentMode.class);
                 startActivity(ParentPin);
                 break;
 

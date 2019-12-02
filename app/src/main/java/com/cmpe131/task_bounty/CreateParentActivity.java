@@ -1,6 +1,5 @@
 package com.cmpe131.task_bounty;
 
-import android.app.AppComponentFactory;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -47,6 +46,7 @@ public class CreateParentActivity extends AppCompatActivity implements TaskHub {
                     toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.show();
                 }
+
             }
         };
         buttonCreatePin.setOnClickListener(btnClick);
