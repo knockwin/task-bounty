@@ -40,10 +40,9 @@ public class TaskListAdapter extends ArrayAdapter<Task> {
         String goal = getItem(position).getGoal();
         String reward = getItem(position).getReward();
         String date = getItem(position).getDate();
-        boolean parentTask = getItem(position).getparentTask();
 
         // Create Task Object
-        Task task = new Task(goal, reward, date, parentTask);
+        Task task = new Task(goal, reward, date);
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);

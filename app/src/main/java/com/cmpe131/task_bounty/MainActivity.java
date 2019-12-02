@@ -88,8 +88,8 @@ public class MainActivity extends AppCompatActivity implements TaskHub {
                 startActivity(completed);
                 break;
             case R.id.action_ParentPin:
-                Toast.makeText(getApplicationContext(), "Parent Pin", Toast.LENGTH_SHORT).show();
-
+                Intent ParentPin = new Intent (this, CreateParentActivity.class);
+                startActivity(ParentPin);
                 break;
 
 

@@ -5,14 +5,12 @@ public class Task {
     private String goal;
     private String reward;
     private String date;
-    private boolean parentTask;
 
     // parent: true if parent class, false if not parent class
-    public Task(String goal, String reward, String date, boolean parent) {
+    public Task(String goal, String reward, String date) {
         this.goal = goal;
         this.reward = reward;
         this.date = date;
-        this.parentTask = parent;
     }
 
     public void setGoal(String goal) { this.goal = goal; }
@@ -28,6 +26,4 @@ public class Task {
     public void setDate(String date) { this.date = date; }
     public String getDate() { return date; }
 
-    public void setparentTask(String date) { this.parentTask = parentTask; }
-    public boolean getparentTask() { return parentTask; }
 }

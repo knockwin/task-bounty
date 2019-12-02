@@ -41,27 +41,28 @@ public class CreateActivity extends AppCompatActivity implements TaskHub {
         // Button Press Action //
         View.OnClickListener btnClick = new View.OnClickListener() {
             public void onClick(View v) {
-                goal = newTaskGoal.getText().toString();
-                reward = newTaskReward.getText().toString();
-                date = formatDate(newTaskDate);
-                if(goal.isEmpty()) {
-                    Context context = getApplicationContext();
-                    CharSequence text = "Please enter a goal.";
-                    int duration = Toast.LENGTH_SHORT;
+                 {
+                    goal = newTaskGoal.getText().toString();
+                    reward = newTaskReward.getText().toString();
+                    date = formatDate(newTaskDate);
+                    if (goal.isEmpty()) {
+                        Context context = getApplicationContext();
+                        CharSequence text = "Please enter a goal.";
+                        int duration = Toast.LENGTH_SHORT;
 
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL, 0, 0);
-                    toast.show();
-                } else {
-                    Task task = new Task(goal, reward, date, false);
-                    setTask(task);
-                    finish();   // End CreateActivity, return to MainActivity
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
+                        toast.show();
+                    } else {
+                        Task task = new Task(goal, reward, date);
+                        setTask(task);
+                        finish();   // End CreateActivity, return to MainActivity
+                    }
                 }
             }
         };
         buttonCreate.setOnClickListener(btnClick);
     }
-
     // Push Task Object to ArrayList //
     private void setTask(Task task) {
         inProgressTasks.add(task);

@@ -90,7 +90,7 @@ public class EditActivity extends AppCompatActivity implements TaskHub {
                     toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
                     toast.show();
                 } else {
-                    Task task = new Task(goal, reward, date, false);
+                    Task task = new Task(goal, reward, date);
                     editTask(INDEX, task);
                     finish();   // End Activity
                 }
