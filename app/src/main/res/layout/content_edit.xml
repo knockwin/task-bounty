@@ -90,4 +90,10 @@
         android:layout_marginBottom="102dp"
         android:text="Save" />
 
+    <Button
+        android:id="@+id/buttonComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Complete" />
+
 </RelativeLayout>

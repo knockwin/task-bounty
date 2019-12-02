@@ -3,6 +3,7 @@ package com.cmpe131.task_bounty;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -25,6 +26,7 @@ public class EditActivity extends AppCompatActivity implements TaskHub {
     private EditText editTaskReward;
     private Button buttonDelete;
     private Button buttonSave;
+    private Button buttonComplete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +39,11 @@ public class EditActivity extends AppCompatActivity implements TaskHub {
         editTaskReward = findViewById(R.id.inputEditReward);
         buttonDelete = findViewById(R.id.buttonDelete);
         buttonSave = findViewById(R.id.buttonSave);
+        buttonComplete = findViewById(R.id.buttonComplete);
 
         // Fetch Task from ArrayList //
         final int INDEX = getIntent().getExtras().getInt("INDEX");
-        Task task = inProgressTasks.get(INDEX);
+        final Task task = inProgressTasks.get(INDEX);
 
         // Display Existing Data //
         String dateStr[] = task.getDate().split("/");
@@ -59,6 +62,18 @@ public class EditActivity extends AppCompatActivity implements TaskHub {
             }
         };
         buttonDelete.setOnClickListener(btnClickDel);
+
+
+        // Button Press Action (Complete) //
+        View.OnClickListener btnClickComp = new View.OnClickListener() {
+            public void onClick(View v) {
+                inProgressTasks.remove(INDEX);
+                setTaskComp(task);
+                finish();
+            }
+        };
+
+        buttonComplete.setOnClickListener(btnClickComp);
 
         // Button Press Action (Save) //
         View.OnClickListener btnClickSave = new View.OnClickListener() {
@@ -82,6 +97,10 @@ public class EditActivity extends AppCompatActivity implements TaskHub {
             }
         };
         buttonSave.setOnClickListener(btnClickSave);
+    }
+
+    private void setTaskComp(Task task) {
+        completedTasks.add(task);
     }
 
     // Edit Task Object in ArrayList //
