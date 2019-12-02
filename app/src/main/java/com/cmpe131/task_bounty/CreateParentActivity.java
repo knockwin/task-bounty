@@ -1,10 +1,13 @@
 package com.cmpe131.task_bounty;
 
 import android.app.AppComponentFactory;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,7 +38,15 @@ public class CreateParentActivity extends AppCompatActivity implements TaskHub {
                     setPin(parent);
                     finish();
                 }
-                
+                else if (ParentPin != ConfirmPin) {
+                    Context context = getApplicationContext();
+                    CharSequence text = "Pins do not match";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
+                    toast.show();
+                }
             }
         };
         buttonCreatePin.setOnClickListener(btnClick);
