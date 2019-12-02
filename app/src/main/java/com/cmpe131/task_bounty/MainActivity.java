@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity implements TaskHub {
@@ -49,6 +50,16 @@ public class MainActivity extends AppCompatActivity implements TaskHub {
         ListView listView = (ListView)findViewById(R.id.listView);
         TaskListAdapter adapter = new TaskListAdapter(this,R.layout.adapter_view_layout,inProgressTasks);
         listView.setAdapter(adapter);
+
+        // Edit Details
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getApplicationContext(), EditActivity.class);
+                intent.putExtra("INDEX", i);    // passes data to activity
+                startActivity(intent);
+            }
+        });
     }
 
     // Start Activity for Creating Task //
