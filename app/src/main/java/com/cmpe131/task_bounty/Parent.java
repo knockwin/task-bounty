@@ -1,6 +1,9 @@
 package com.cmpe131.task_bounty;
 
-public class Parent {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Parent extends AppCompatActivity implements TaskHub
+{
 
     private int pin;
     private boolean parentMode;
