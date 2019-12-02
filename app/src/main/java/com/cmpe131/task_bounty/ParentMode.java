@@ -26,7 +26,19 @@ public class ParentMode extends AppCompatActivity implements TaskHub {
 
         CreatePin.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                startActivity(new Intent(ParentMode.this,CreateParentActivity.class ));
+                if(parentPin.size() < 1) {
+                    startActivity(new Intent(ParentMode.this, CreateParentActivity.class));
+                }
+                else {
+                    Context context = getApplicationContext();
+                    CharSequence text = "There is already a pin created";
+                    int duration = Toast.LENGTH_SHORT;
+
+                    Toast toast = Toast.makeText(context, text, duration);
+                    toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
+                    toast.show();
+                }
+
             }
         });
 
