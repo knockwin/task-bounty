@@ -5,6 +5,6 @@ import java.util.ArrayList;
 public interface TaskHub {
     ArrayList<Task> inProgressTasks = new ArrayList<>();
     ArrayList<Task> completedTasks = new ArrayList<>();
-    ArrayList<Integer>  parentPin = new ArrayList<>();
+    ArrayList<Parent>  parentPin = new ArrayList<>();
 
 }

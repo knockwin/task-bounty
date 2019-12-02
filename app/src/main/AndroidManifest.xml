@@ -22,6 +22,8 @@
         <activity android:name=".CompletedTasks"></activity>
         <activity android:name=".CreateActivity"></activity>
         <activity android:name=".EditActivity"></activity>
+        <activity android:name=".CreateParentActivity"></activity>
+
     </application>
 
 </manifest>
