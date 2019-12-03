@@ -9,10 +9,11 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="114dp"
-        android:layout_marginLeft="114dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="105dp"
+        android:layout_marginLeft="105dp"
         android:layout_marginTop="276dp"
-        android:layout_marginBottom="347dp"
+        android:layout_marginBottom="349dp"
         android:text="Delete Parent Account" />
 
     <Button
@@ -22,8 +23,10 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="135dp"
-        android:layout_marginLeft="135dp"
-        android:layout_marginBottom="427dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="131dp"
+
+        android:layout_marginLeft="131dp"
+        android:layout_marginBottom="430dp"
         android:text="Create Pin Login" />
 </RelativeLayout>
