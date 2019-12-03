@@ -52,7 +52,7 @@
         android:layout_marginRight="99dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Set Pin"
+        android:hint="Create Pin"
         android:inputType="numberPassword" />
 
 

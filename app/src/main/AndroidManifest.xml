@@ -24,6 +24,11 @@
         <activity android:name=".EditActivity"></activity>
         <activity android:name=".CreateParentActivity"></activity>
         <activity android:name=".ParentMode"></activity>
+        <activity android:name=".PopUp"
+            android:theme="@style/AppTheme.PopMe"
+            ></activity>
+
+
 
 
     </application>

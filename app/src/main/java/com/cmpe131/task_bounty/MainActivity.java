@@ -57,17 +57,32 @@ public class MainActivity extends AppCompatActivity implements TaskHub {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(getApplicationContext(), EditActivity.class);
-                intent.putExtra("INDEX", i);    // passes data to activity
-                startActivity(intent);
+                if(parentPin.size() > 0) {
+                    Options.add(2);
+                    Intent intent = new Intent(getApplicationContext(), PopUp.class);
+                    intent.putExtra("INDEX", i);
+                    startActivity(intent);
+                }
+                else {
+                    Intent intent = new Intent(getApplicationContext(), EditActivity.class);
+                    intent.putExtra("INDEX", i);    // passes data to activity
+                    startActivity(intent);
+                }
             }
         });
     }
 
     // Start Activity for Creating Task //
     public void createTask() {
-        Intent intent = new Intent(this, CreateActivity.class);
-        startActivity(intent);
+        if(parentPin.size() > 0) {
+            Options.add(1);
+            Intent intent = new Intent (this,PopUp.class);
+            startActivity(intent);
+        }
+        else {
+            Intent intent = new Intent(this, CreateActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override

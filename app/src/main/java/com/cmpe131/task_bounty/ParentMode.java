@@ -45,6 +45,7 @@ public class ParentMode extends AppCompatActivity implements TaskHub {
         DeleteParent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Options.add(3);
                 if(parentPin.size() == 0) {
                     Context context = getApplicationContext();
                     CharSequence text = "There is no parent account";
@@ -56,15 +57,7 @@ public class ParentMode extends AppCompatActivity implements TaskHub {
 
                 }
                 else {
-                    parentPin.remove(0);
-
-                    Context context = getApplicationContext();
-                    CharSequence text = "Parent Account has been deleted";
-                    int duration = Toast.LENGTH_SHORT;
-
-                    Toast toast = Toast.makeText(context, text, duration);
-                    toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 0);
-                    toast.show();
+                    startActivity(new Intent(ParentMode.this, PopUp.class));
 
                 }
             }
